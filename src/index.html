@@ -4,9 +4,20 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    
   </head>
   <body>
-  <h1>hola prueba2</h1>
+    <img class="background" src="fondo.png">
+    <!--filtro ordenar por-->
+    <div class="filters">
+      <label for="order"></label><br>
+      <select class="select" id="order">
+          <option value="0" selected="selected">Ordenar Por </option>
+          <option value="A-Z"> A - Z </option>
+          <option value="Z-A"> Z - A </option>
+        </select>
+    </div>
+  
     <div id="root"></div>
     <script src="main.js" type="module"></script>
   </body>
