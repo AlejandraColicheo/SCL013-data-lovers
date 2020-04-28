@@ -1,7 +1,46 @@
-.background {
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    z-index: -1
+/*-------------Estilos del nav-----------*/
+body{
+  background-image: url('fondo-simple.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 1200px){
+    .container {
+        max-width: 1440px;
     }
+}
+
+.navbar{
+    padding: 0.2rem 0;
+}
+
+.logo-pokemon{
+    height: 50px;
+}
+
+nav{
+background-color: transparent;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+}
+/*
+.menu{
+border:0px;
+border-radius: 0px;
+background-image: url('fondo-simple.png');
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}*/
+
+/*.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1
+    }*/
