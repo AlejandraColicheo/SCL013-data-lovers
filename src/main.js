@@ -1,11 +1,13 @@
-import data from './data/pokemon/pokemon.js'
+import data from './data/pokemon/pokemon.js';
+import {sort} from './data.js';
+
 
 for (let i=0; i<data.pokemon.length; i++){
     //creandp tarjeta
     let cards= document.createElement("div");
     cards.className ="cards";
     cards.id = "cards";
-   //nombre de la tarjeta
+   //nombre del pokemon
    let name = document.createElement("h3");
    name.textContent = data.pokemon[i].name;
    //imagen
@@ -31,8 +33,51 @@ for (let i=0; i<data.pokemon.length; i++){
    cards.appendChild(type2);
    //mostrar la tarjeta en html -> section (el container que hicimos)
    document.getElementById("container").appendChild(cards).innerHTML;
-
-
-
 }
+// selecionar orden
+const order = document.getElementById("order");
+order.addEventListener("change", () =>{
+    let oReady = sort(order);
+    console.log(oReady.length);
+    document.getElementById("container").innerHTML="";
+    for (let i=0; i<oReady.length; i++){
+        let cards= document.createElement("div");
+        cards.className ="cards";
+         cards.id = "cards";
+        //nombre del pokemon
+        let name = document.createElement("h3");
+        name.textContent = oReady[i].name;
+        //imagen
+        let image = document.createElement("img");
+        image.src =oReady[i].img;
+        //numero
+        let number = document.createElement("h4");
+        number.textContent ="#" + oReady[i].num;
+        cards.className = "number";
+        //primer tipo de pokemon
+        let type1 = document.createElement ("p");
+        type1.textContent = oReady[i].type[0];
+        type1.className = "type1";
+        //segundo tipo pokemon
+        let type2 = document.createElement ("p");
+        type2.textContent = oReady[i].type[1];
+        type2.className = "type2";
+        //asignando la variables appendchild agrega elementos a una lista
+        cards.appendChild(name);
+        cards.appendChild(image);
+        cards.appendChild(number);
+        cards.appendChild(type1);
+        cards.appendChild(type2);
+        //mostrar la tarjeta en html -> section (el container que hicimos)
+        document.getElementById("container").appendChild(cards).innerHTML;    
+    }
+
+
+
+})
+//seleccionar tipo
+const type = document.getElementById("type");
+//seleccionar huevos
+const eggs = document.getElementById("eggs");
+
 
