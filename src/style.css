@@ -1,7 +1,65 @@
-.fondo {
+/*.fondo {
     position: absolute; 
     top: 0; 
     left: 0; 
     width: 100%; 
     z-index: -1
+    }*/
+
+    body{
+        background: url(fondo-simple.png);
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-attachment: fixed;
     }
+    /*--------------filtros-----------*/
+    .filters {
+            flex-grow: 1;
+            padding-top: 4em;
+            display: flex;
+            justify-content: left;
+            flex-wrap: wrap;
+            width: 100%;
+            box-sizing: border-box;
+            margin-left: 70px;
+        }
+    
+        .container {
+                display: flex;
+                flex-wrap: wrap;
+                padding-left: 5%;
+                padding-right: 5%;
+                padding-top: 1%;
+                box-sizing: border-box;
+                justify-content: space-around;
+                align-content: center;
+                text-align: center;
+                width: 100%;
+            }
+    /*--------cards---------*/
+            .number {
+            padding: 20px;
+            padding-top: 5px;
+            padding-bottom: 10px;
+            margin: 15px;
+            width: 120px;
+            height: 240px;
+            text-align: center;
+            border-radius: 6%;
+            background-color: red;
+            opacity: 0.9;
+        }
+    
+          .number:hover {
+            opacity: 1;
+          }
+    /*------titulos-------*/
+          h3 {
+            margin: 5px;
+            color: #42687e;
+        }
+        h4 {
+            margin: 0px;
+            color: #42687e;
+        }
+    
