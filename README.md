@@ -42,17 +42,17 @@
 
 ### Prototipo en papel:
 
-![prototipo en papel](./img/sketch1.jpg)
-![prototipo en papel](./img/sketch2.jpg)
-![prototipo en papel](./img/sketch3.jpg)
-![prototipo en papel](./img/sketch4.jpg)
+![prototipo en papel](/sketch1.jpg)
+![prototipo en papel](/sketch2.jpg)
+![prototipo en papel](/sketch3.jpg)
+![prototipo en papel](/sketch4.jpg)
 
 ### Prototipo de baja fidelidad:
 
-![baja fidelidad](./img/bajafidelidad1.png)
-![baja fidelidad](./img/bajafidelidad2.png)
-![baja fidelidad](./img/bajafidelidad3.png)
-![baja fidelidad](./img/bajafidelidad4.png)
+![baja fidelidad](/bajafidelidad1.png)
+![baja fidelidad](/bajafidelidad2.png)
+![baja fidelidad](/bajafidelidad3.png)
+![baja fidelidad](/bajafidelidad4.png)
 
 ### Prototipo de alta fidelidad:
 
