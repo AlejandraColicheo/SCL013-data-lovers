@@ -1,7 +1,7 @@
 import data from './data/pokemon/pokemon.js';
 
 //funcion ordenar
-export const sort = (select) => {
+export const filterData = (select) => {
  let option = select.options[select.selectedIndex].value;
  let filter = "";
  //comparar según el valor

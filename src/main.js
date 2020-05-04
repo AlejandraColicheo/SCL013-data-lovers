@@ -1,5 +1,5 @@
 import data from './data/pokemon/pokemon.js';
-import {sort} from './data.js';
+import {filterData} from './data.js';
 
 
 for (let i=0; i<data.pokemon.length; i++){
@@ -37,8 +37,7 @@ for (let i=0; i<data.pokemon.length; i++){
 // selecionar orden
 const order = document.getElementById("order");
 order.addEventListener("change", () =>{
-    let oReady = sort(order);
-    console.log(oReady.length);
+    let oReady = filterData(order);
     document.getElementById("container").innerHTML="";
     for (let i=0; i<oReady.length; i++){
         let cards= document.createElement("div");
