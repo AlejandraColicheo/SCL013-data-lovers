@@ -21,3 +21,10 @@ export const filterData = (select) => {
   return filter;
 
 };
+
+//Función filtrar por tipo
+export const filterType = (type) => {
+let typeFilter = data.pokemon.filter(element => element.type.includes(type));
+return typeFilter;
+}
+
