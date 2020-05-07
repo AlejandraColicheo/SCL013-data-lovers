@@ -27,4 +27,8 @@ export const filterType = (type) => {
 let typeFilter = data.pokemon.filter(element => element.type.includes(type));
 return typeFilter;
 }
-
+//Función filtrar por huevo
+export const filterEggs = (egg) => {
+  let eggsFilter = data.pokemon.filter( element => element.egg.includes(egg));
+  return eggsFilter;
+}

@@ -1,5 +1,5 @@
 import data from './data/pokemon/pokemon.js';
-import {filterData, filterType} from './data.js';
+import {filterData, filterType, filterEggs} from './data.js';
 
 
 for (let i=0; i<data.pokemon.length; i++){
@@ -112,6 +112,40 @@ for (let i=0; i<tfiltered.length; i++){
 })
 //seleccionar huevos
 const eggs = document.getElementById("eggs");
-
+eggs.addEventListener("change",() => {
+    let efiltered = filterEggs(eggs.value);
+    document.getElementById("container").innerHTML=""; //con el comillas borras lo que estaba antes ( vacias el container)
+for (let i=0; i<efiltered.length; i++){
+    let cards= document.createElement("div");
+    cards.className ="cards";
+     cards.id = "cards";
+    //nombre del pokemon
+    let name = document.createElement("h3");
+    name.textContent = efiltered[i].name;
+    //imagen
+    let image = document.createElement("img");
+    image.src =efiltered[i].img;
+    //numero
+    let number = document.createElement("h4");
+    number.textContent ="#" + efiltered[i].num;
+    cards.className = "number";
+    //primer tipo de pokemon
+    let type1 = document.createElement ("p");
+    type1.textContent = efiltered[i].type[0];
+    type1.className = "type1";
+    //segundo tipo pokemon
+    let type2 = document.createElement ("p");
+    type2.textContent = efiltered[i].type[1];
+    type2.className = "type2";
+    //asignando la variables appendchild agrega elementos a una lista
+    cards.appendChild(name);
+    cards.appendChild(image);
+    cards.appendChild(number);
+    cards.appendChild(type1);
+    cards.appendChild(type2);
+    //mostrar la tarjeta en html -> section (el container que hicimos)
+    document.getElementById("container").appendChild(cards).innerHTML;    
+}
+});
 
 
