@@ -46,10 +46,11 @@
             height: 240px;
             text-align: center;
             border-radius: 6%;
-            background-color: red;
-            opacity: 0.9;
+            background: linear-gradient(#FED603, #FEFFDF);
+            opacity: 0.7;
+            box-shadow: -2px 2px 10px blue;
         }
-    
+        
           .number:hover {
             opacity: 1;
           }
