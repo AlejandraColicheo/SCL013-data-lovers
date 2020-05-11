@@ -1,5 +1,73 @@
 import data from './data/pokemon/pokemon.js';
-import {filterData, filterType, filterEggs} from './data.js';
+import {filterData, filterType, filterEggs, pkById} from './data.js';
+
+const modal = () => {
+    let query = document.querySelectorAll("div.cards");
+    console.log(query[0]);
+    console.log(query);
+    console.log(query.length);
+    for (let i = 0; i <query.length; i++){
+        query[i].addEventListener("click", () => {
+        console.log(query[i]);
+        document.getElementById("modalContainer").innerHTML = "";
+        let pokemon = pkById(query[i].getAttribute("value"));
+
+    let cards= document.createElement("div");
+    cards.className ="modalCards";
+     cards.id = "modalCards";
+     //crear boton cerrar x
+     let span = document.createElement("span");
+     span.className = "close";
+     span.textContent = "X";
+    //nombre del pokemon
+    let name = document.createElement("h3");
+    name.textContent = pokemon.name;
+    //imagen
+    let image = document.createElement("img");
+    image.src =pokemon.img;
+    //peso
+    let weight = document.createElement("p");
+    weight.className = "peso";
+    weight.textContent = "Peso: "+pokemon.weight;
+    //altura
+    let height = document.createElement("p");
+    height.className = "altura";
+    height.textContent = "Altura: "+pokemon.height;
+    //candy
+    let candy = document.createElement("p");
+    candy.className = "candy";
+    candy.textContent = "Candy: "+pokemon.candy;        
+            
+    //asignando la variables appendchild agrega elementos a una lista
+    cards.appendChild(span);
+    cards.appendChild(name);
+    cards.appendChild(image);
+    cards.appendChild(weight);
+    cards.appendChild(height);
+    cards.appendChild(candy);
+    //mostrar la tarjeta en html -> section (el container que hicimos)
+    document.getElementById("modalContainer").appendChild(cards).innerHTML;
+    let mod = document.getElementById("modalCards");
+    let body = document.getElementsByTagName("body")[0];
+    let x = document.getElementsByClassName("close")[0];
+    let container = document.getElementsByClassName("container")[0];
+    mod.style.display = "block";
+    body.style.position = "static";
+    body.style.overflow = "hidden";
+    container.style = "pointer-events:none;"
+    container.style.opacity = 0.5;
+    x.onclick = function() {
+        mod.style.display = "none";
+        body.style.position = "inherit";
+        body.style.overflow = "auto";
+        container.style ="pointer-events:active;";
+        container.style.opacity = 1;
+
+    }
+    
+    });
+    }
+}
 
 
 for (let i=0; i<data.pokemon.length; i++){
@@ -7,6 +75,7 @@ for (let i=0; i<data.pokemon.length; i++){
     let cards= document.createElement("div");
     cards.className ="cards";
     cards.id = "cards";
+    cards.setAttribute ("value", data.pokemon[i].id); //la creamos para utilizar el modal
    //nombre del pokemon
    let name = document.createElement("h3");
    name.textContent = data.pokemon[i].name;
@@ -16,7 +85,7 @@ for (let i=0; i<data.pokemon.length; i++){
    //numero
    let number = document.createElement("h4");
    number.textContent ="#" + data.pokemon[i].num;
-   cards.className = "number";
+   number.className = "number";
    //primer tipo de pokemon
    let type1 = document.createElement ("p");
    type1.textContent = data.pokemon[i].type[0];
@@ -34,6 +103,7 @@ for (let i=0; i<data.pokemon.length; i++){
    //mostrar la tarjeta en html -> section (el container que hicimos)
    document.getElementById("container").appendChild(cards).innerHTML;
 }
+ modal();
 // selecionar orden
 const order = document.getElementById("order");
 order.addEventListener("change", () =>{
@@ -43,6 +113,7 @@ order.addEventListener("change", () =>{
         let cards= document.createElement("div");
         cards.className ="cards";
          cards.id = "cards";
+         cards.setAttribute ("value", oReady[i].id);
         //nombre del pokemon
         let name = document.createElement("h3");
         name.textContent = oReady[i].name;
@@ -52,7 +123,7 @@ order.addEventListener("change", () =>{
         //numero
         let number = document.createElement("h4");
         number.textContent ="#" + oReady[i].num;
-        cards.className = "number";
+        number.className = "number";
         //primer tipo de pokemon
         let type1 = document.createElement ("p");
         type1.textContent = oReady[i].type[0];
@@ -68,9 +139,9 @@ order.addEventListener("change", () =>{
         cards.appendChild(type1);
         cards.appendChild(type2);
         //mostrar la tarjeta en html -> section (el container que hicimos)
-        document.getElementById("container").appendChild(cards).innerHTML;    
+        document.getElementById("container").appendChild(cards).innerHTML;
     }
-
+    modal();
 })
 //seleccionar tipo
 const types = document.getElementById("type");
@@ -81,6 +152,7 @@ for (let i=0; i<tfiltered.length; i++){
     let cards= document.createElement("div");
     cards.className ="cards";
      cards.id = "cards";
+     cards.setAttribute ("value", tfiltered[i].id);
     //nombre del pokemon
     let name = document.createElement("h3");
     name.textContent = tfiltered[i].name;
@@ -90,7 +162,7 @@ for (let i=0; i<tfiltered.length; i++){
     //numero
     let number = document.createElement("h4");
     number.textContent ="#" + tfiltered[i].num;
-    cards.className = "number";
+    number.className = "number";
     //primer tipo de pokemon
     let type1 = document.createElement ("p");
     type1.textContent = tfiltered[i].type[0];
@@ -106,9 +178,9 @@ for (let i=0; i<tfiltered.length; i++){
     cards.appendChild(type1);
     cards.appendChild(type2);
     //mostrar la tarjeta en html -> section (el container que hicimos)
-    document.getElementById("container").appendChild(cards).innerHTML;    
+    document.getElementById("container").appendChild(cards).innerHTML;
 }
-
+modal();
 })
 //seleccionar huevos
 const eggs = document.getElementById("eggs");
@@ -119,6 +191,7 @@ for (let i=0; i<efiltered.length; i++){
     let cards= document.createElement("div");
     cards.className ="cards";
      cards.id = "cards";
+     cards.setAttribute ("value", efiltered[i].id);
     //nombre del pokemon
     let name = document.createElement("h3");
     name.textContent = efiltered[i].name;
@@ -128,7 +201,7 @@ for (let i=0; i<efiltered.length; i++){
     //numero
     let number = document.createElement("h4");
     number.textContent ="#" + efiltered[i].num;
-    cards.className = "number";
+    number.className = "number";
     //primer tipo de pokemon
     let type1 = document.createElement ("p");
     type1.textContent = efiltered[i].type[0];
@@ -144,8 +217,9 @@ for (let i=0; i<efiltered.length; i++){
     cards.appendChild(type1);
     cards.appendChild(type2);
     //mostrar la tarjeta en html -> section (el container que hicimos)
-    document.getElementById("container").appendChild(cards).innerHTML;    
+    document.getElementById("container").appendChild(cards).innerHTML; 
 }
+modal();
 });
-
+//Modal
 

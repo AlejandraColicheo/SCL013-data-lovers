@@ -1,5 +1,4 @@
-import { example, anotherExample } from '../src/data.js';
-
+import { filterData, filterType, filterEggs } from '../src/data.js'; 
 
 describe('example', () => {
   test('is a function', () => {

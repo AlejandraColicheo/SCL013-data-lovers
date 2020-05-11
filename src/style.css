@@ -55,7 +55,7 @@
                 width: 100%;
             }
     /*--------cards---------*/
-            .number {
+            .cards {
             padding: 20px;
             padding-top: 5px;
             padding-bottom: 10px;
@@ -90,3 +90,35 @@
       color: white;
       font-family: 'Lato', sans-serif;
     }
+/*modal*/
+.modalCards {
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    display: none;
+    z-index: 1;
+    position: fixed; 
+    padding: 1.5%;
+    padding-bottom: 50px;
+    margin-left: 35%;
+    width: 30%;
+    height: 30%;
+    border-radius: 6%;
+    background-color: white; opacity: 0.9;      
+}
+.modalCards.close {
+color: #aaaaaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.modalCards.close:hover,
+.modalCards.close:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+}
+

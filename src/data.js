@@ -32,3 +32,13 @@ export const filterEggs = (egg) => {
   let eggsFilter = data.pokemon.filter( element => element.egg.includes(egg));
   return eggsFilter;
 }
+
+//devuelve pokemon por id al que le haces click
+export const pkById = (idpk) => {
+  let result = data.pokemon.find(element => {
+    return element.id == idpk;
+
+  });
+  return result;
+
+};
