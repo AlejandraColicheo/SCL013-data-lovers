@@ -35,7 +35,13 @@
           #type{
             margin-right: 20px;
           }
-    
+
+/*------Barra buscador---------*/
+#search{
+    margin-left: 100px;
+    font-family: 'Lato', sans-serif; 
+  }
+    /*contenedor de las tarjetas pokemones*/
         .container {
                 display: flex;
                 flex-wrap: wrap;
