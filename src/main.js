@@ -1,6 +1,6 @@
 import data from './data/pokemon/pokemon.js';
 import {filterData, filterType, filterEggs, pkById} from './data.js';
-
+//modal
 const modal = () => {
     let query = document.querySelectorAll("div.cards");
     console.log(query[0]);

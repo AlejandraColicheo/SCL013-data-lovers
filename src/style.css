@@ -1,10 +1,50 @@
-/*.fondo {
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    z-index: -1
-    }*/
+ /*POPUP*/
+.modal{
+  width: 40%;
+  height: 100vh;
+  background: rgba(0,0,0,0,8);
+  position: center;
+  display: flex;
+  z-index: -1;
+  animation: modal 1s 1s forwards;
+  opacity: 0;
+}
+
+#cerrar {
+  display: none;
+}
+#cerrar + label {
+ position: absolute;
+ color: rgb(20, 61, 246);
+ font-size: 25px;
+ text-align: center;
+ font-family: sans-serif;
+ z-index: 10;
+ background: rgb(240, 225, 12);
+ height: 30px;
+ width: 30px;
+ line-height: 30px;
+ border-radius: 80%;
+ right: 10px;
+ cursor: pointer;
+
+ animation: modal 2s 1s forwards;
+ visibility: hidden;
+ opacity: 0;
+
+}
+
+#cerrar:checked + label, #cerrar:checked ~ .modal {
+ display: none;
+}
+
+@keyframes modal {
+ 100% {
+     visibility: visible;
+     opacity: 1; 
+  
+ }
+}
 
     body{
         background: url(fondo-simple.png);
@@ -14,7 +54,7 @@
     }
     /*--------------filtros-----------*/
     .filters {
-        flex-grow: 1;
+        flex-grow: 4;
         padding: 2em;
         display: flex;
         justify-content: center;
@@ -23,23 +63,31 @@
         box-sizing: border-box;
         background-color: #3c38f8;
         opacity: 0.8;
-        border-radius: 8px;
+        border-radius: 20px;
         font-family: 'Lato', sans-serif;
         color: white;
         }
 
         #order{
             margin-right: 20px;
+            color: rgb(79, 38, 228);
           }
           
           #type{
-            margin-right: 20px;
-          }
+            margin-right: 40px;
+            color: rgb(79, 38, 228);
 
+          }
+          #eggs{
+            margin-right: 40px;
+            color: rgb(79, 38, 228);
+          }
 /*------Barra buscador---------*/
 #search{
     margin-left: 100px;
     font-family: 'Lato', sans-serif; 
+    border-radius: 8%;
+    
   }
     /*contenedor de las tarjetas pokemones*/
         .container {
@@ -104,20 +152,18 @@
     padding-bottom: 50px;
     margin-left: 35%;
     width: 30%;
-    height: 30%;
+    height: 40%;
     border-radius: 6%;
-    background-color: white; opacity: 0.9;      
+    background: linear-gradient(rgb(250, 237, 97), #FEFFDF); opacity: 10;      
 }
 .modalCards.close {
-color: #aaaaaa;
 float: right;
 font-size: 28px;
-font-weight: bold;
+font-family: 'Lato', sans-serif;
 }
 
 .modalCards.close:hover,
 .modalCards.close:focus {
-color: #000;
 text-decoration: none;
 cursor: pointer;
 }
