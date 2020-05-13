@@ -1,14 +1,11 @@
 import data from './data/pokemon/pokemon.js';
 import {filterData, filterType, filterEggs, pkById} from './data.js';
+
 //modal
 const modal = () => {
     let query = document.querySelectorAll("div.cards");
-    console.log(query[0]);
-    console.log(query);
-    console.log(query.length);
     for (let i = 0; i <query.length; i++){
         query[i].addEventListener("click", () => {
-        console.log(query[i]);
         document.getElementById("modalContainer").innerHTML = "";
         let pokemon = pkById(query[i].getAttribute("value"));
 
@@ -107,7 +104,7 @@ for (let i=0; i<data.pokemon.length; i++){
 // selecionar orden
 const order = document.getElementById("order");
 order.addEventListener("change", () =>{
-    let oReady = filterData(order);
+    let oReady = filterData(order.value);
     document.getElementById("container").innerHTML="";
     for (let i=0; i<oReady.length; i++){
         let cards= document.createElement("div");
