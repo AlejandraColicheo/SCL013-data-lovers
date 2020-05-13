@@ -63,11 +63,11 @@
 
 ### Link test usabilidad Maze:
 
-![Ingresa a este link](https://t.maze.design/10874729)
+[Ingresa a este link](https://t.maze.design/10874729)
 
 ### Link de resultados:
 
-![ingresa a este link](https://maze.design/projects/10874794/mazes/10874729/results)
+[ingresa a este link](https://maze.design/projects/10874794/mazes/10874729/results)
 
 
 
