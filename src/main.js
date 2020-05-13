@@ -66,7 +66,7 @@ const modal = () => {
     }
 }
 
-
+//primera vez que se enlistas los pokemones
 for (let i=0; i<data.pokemon.length; i++){
     //creandp tarjeta
     let cards= document.createElement("div");
@@ -104,7 +104,7 @@ for (let i=0; i<data.pokemon.length; i++){
 // selecionar orden
 const order = document.getElementById("order");
 order.addEventListener("change", () =>{
-    let oReady = filterData(order.value);
+    let oReady = filterData(order.value);//aqui ingresamos el select que debiamos cambiar desde datajs
     document.getElementById("container").innerHTML="";
     for (let i=0; i<oReady.length; i++){
         let cards= document.createElement("div");
@@ -220,3 +220,45 @@ modal();
 });
 //Modal
 
+//busador pokemon
+let searchPoke = document.getElementById ("search");
+searchPoke.addEventListener('keyup', () => {
+    let minus = searchPoke.value.toLowerCase();
+    document.getElementById('container').innerHTML="";
+    for (let i = 0; i <data.pokemon.length; i++){
+        let minusPoke = data.pokemon[i].name.toLowerCase();//el nombre del pokemon queda guardado en minuspoke con minuscula
+        if (minusPoke.indexOf(minus)!=-1){
+            let cards= document.createElement("div");
+            cards.className ="cards";
+            cards.id = "cards";
+            cards.setAttribute ("value", data.pokemon[i].id); //la creamos para utilizar el modal
+            //nombre del pokemon
+            let name = document.createElement("h3");
+            name.textContent = data.pokemon[i].name;
+            //imagen
+            let image = document.createElement("img");
+            image.src =data.pokemon[i].img;
+            //numero
+            let number = document.createElement("h4");
+            number.textContent ="#" + data.pokemon[i].num;
+            number.className = "number";
+            //primer tipo de pokemon
+            let type1 = document.createElement ("p");
+            type1.textContent = data.pokemon[i].type[0];
+            type1.className = "type1";
+            //segundo tipo pokemon
+            let type2 = document.createElement ("p");
+            type2.textContent = data.pokemon[i].type[1];
+            type2.className = "type2";
+            //asignando la variables appendchild agrega elementos a una lista
+            cards.appendChild(name);
+            cards.appendChild(image);
+            cards.appendChild(number);
+            cards.appendChild(type1);
+            cards.appendChild(type2);
+            //mostrar la tarjeta en html -> section (el container que hicimos)
+            document.getElementById("container").appendChild(cards).innerHTML;
+    
+        } modal();
+    }
+})

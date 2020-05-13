@@ -24,8 +24,7 @@ describe('anotherExample', () => {
 */
 import {filterData, filterType, filterEggs} from '../src/data.js'; 
 
-const pokemonData = {
-  pokemon:[
+const pokemon = [
 
   {
     "id": 1,
@@ -70,7 +69,7 @@ const pokemonData = {
     "weight": "100.0 kg",
     "candy": "Bulbasaur Candy",
     "egg": "Not in Eggs",
-  }]}
+  }]
 
 describe('filterData', () => {
   test('is a function', () => {
@@ -78,11 +77,11 @@ describe('filterData', () => {
   });
 
   test('returns pokemones ordenados de A-Z', () => {
-    expect(filterData(pokemonData, 'name', 'az')).toStrictEqual(pokemonData);
+    expect(filterData(pokemon, 'name','id','num','img','type','height','weight','candy', 'candy_count','egg', 'az')).toStrictEqual(pokemon);
   });
 
   test('returns pokemones ordenados de Z-A', () => {
-    expect(filterData(pokemonData, 'name', 'za')).toStrictEqual(pokemonData.reverse());
+    expect(filterData(pokemon,  'name','id','num','img','type','height','weight','candy', 'candy_count','egg', 'za')).toStrictEqual(pokemon.reverse());
   });
 });
 
@@ -93,7 +92,7 @@ describe('filterType', () => {
   });
 
   test('retorna pokemon por tipo', () => {
-    expect(filterType(pokemonData, 'type', 'Grass').length).toBe(3);
+    expect(filterType(pokemon, 'type', 'Grass').length).toBe(3);
   });
 
 });
@@ -104,7 +103,7 @@ describe('filterEggs', () => {
   });
 
   test('retorna pokemon por huevo', () => {
-    expect(filterEggs(pokemonData, 'egg', '2 km').length).toBe(1);
+    expect(filterEggs(pokemon, 'egg', '2 km').length).toBe(1);
   });
 
 });
