@@ -154,7 +154,7 @@
     width: 30%;
     height: 40%;
     border-radius: 6%;
-    background: linear-gradient(rgb(250, 237, 97), #FEFFDF); opacity: 10;      
+    background: #fed821; opacity: 0.9;      
 }
 .modalCards.close {
 float: right;
