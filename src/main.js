@@ -7,7 +7,7 @@ const modal = () => {
     for (let i = 0; i <query.length; i++){
         query[i].addEventListener("click", () => {
         document.getElementById("modalContainer").innerHTML = "";
-        let pokemon = pkById(query[i].getAttribute("value"));
+        let pokemon = pkById(query[i].getAttribute("value"),data);
 
     let cards= document.createElement("div");
     cards.className ="modalCards";
@@ -104,7 +104,7 @@ for (let i=0; i<data.pokemon.length; i++){
 // selecionar orden
 const order = document.getElementById("order");
 order.addEventListener("change", () =>{
-    let oReady = filterData(order.value);//aqui ingresamos el select que debiamos cambiar desde datajs
+    let oReady = filterData(order.value,data);//aqui ingresamos el select que debiamos cambiar desde datajs
     document.getElementById("container").innerHTML="";
     for (let i=0; i<oReady.length; i++){
         let cards= document.createElement("div");
@@ -143,7 +143,7 @@ order.addEventListener("change", () =>{
 //seleccionar tipo
 const types = document.getElementById("type");
 types.addEventListener("change", () => {
-let tfiltered = filterType(types.value);
+let tfiltered = filterType(types.value,data);
 document.getElementById("container").innerHTML=""; //con el comillas borras lo que estaba antes ( vacias el container)
 for (let i=0; i<tfiltered.length; i++){
     let cards= document.createElement("div");
@@ -182,7 +182,7 @@ modal();
 //seleccionar huevos
 const eggs = document.getElementById("eggs");
 eggs.addEventListener("change",() => {
-    let efiltered = filterEggs(eggs.value);
+    let efiltered = filterEggs(eggs.value,data);
     document.getElementById("container").innerHTML=""; //con el comillas borras lo que estaba antes ( vacias el container)
 for (let i=0; i<efiltered.length; i++){
     let cards= document.createElement("div");
