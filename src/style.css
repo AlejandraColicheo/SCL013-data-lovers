@@ -168,3 +168,8 @@ text-decoration: none;
 cursor: pointer;
 }
 
+@media(max-width:576px){
+  .logo{
+    max-width: 170px;
+  }
+}

@@ -23,8 +23,53 @@ describe('anotherExample', () => {
 });
 */
 import {filterData, filterType, filterEggs} from '../src/data.js'; 
+const pokeDesordenados = [
+  {
+    "id": 3,
+    "num": "003",
+    "name": "Venusaur",
+    "img": "http://www.serebii.net/pokemongo/pokemon/003.png",
+    "type": [
+      "Grass",
+      "Poison"
+    ],
+    "height": "2.01 m",
+    "weight": "100.0 kg",
+    "candy": "Bulbasaur Candy",
+    "egg": "Not in Eggs",
+  },
+  {
+    "id": 1,
+    "num": "001",
+    "name": "Bulbasaur",
+    "img": "http://www.serebii.net/pokemongo/pokemon/001.png",
+    "type": [
+      "Grass",
+      "Poison"
+    ],
+    "height": "0.71 m",
+    "weight": "6.9 kg",
+    "candy": "Bulbasaur Candy",
+    "candy_count": 25,
+    "egg": "2 km",
+  },
+  {
+    "id": 2,
+    "num": "002",
+    "name": "Ivysaur",
+    "img": "http://www.serebii.net/pokemongo/pokemon/002.png",
+    "type": [
+      "Grass",
+      "Poison"
+    ],
+    "height": "0.99 m",
+    "weight": "13.0 kg",
+    "candy": "Bulbasaur Candy",
+    "candy_count": 100,
+    "egg": "Not in Eggs",    
+  }];
 
-const pokemon = [
+const pokeOrdenados = [
 
   {
     "id": 1,
@@ -69,7 +114,7 @@ const pokemon = [
     "weight": "100.0 kg",
     "candy": "Bulbasaur Candy",
     "egg": "Not in Eggs",
-  }]
+  }];
 
 describe('filterData', () => {
   test('is a function', () => {
@@ -77,11 +122,12 @@ describe('filterData', () => {
   });
 
   test('returns pokemones ordenados de A-Z', () => {
-    expect(filterData(pokemon, 'name','id','num','img','type','height','weight','candy', 'candy_count','egg', 'az')).toStrictEqual(pokemon);
+    //   expect(filterData(//quiero regresar)).toBe(lo que deberia regresar);
+    expect(filterData(pokeOrdenados)).toBe(pokeOrdenados);
   });
 
   test('returns pokemones ordenados de Z-A', () => {
-    expect(filterData(pokemon,  'name','id','num','img','type','height','weight','candy', 'candy_count','egg', 'za')).toStrictEqual(pokemon.reverse());
+    expect(filterData(pokeDesordenados, 'name')).toStrictEqual(pokeOrdenados.reverse());
   });
 });
 
@@ -92,7 +138,7 @@ describe('filterType', () => {
   });
 
   test('retorna pokemon por tipo', () => {
-    expect(filterType(pokemon, 'type', 'Grass').length).toBe(3);
+    expect(filterType(pokeDesordenados, 'type', 'Grass').length).toBe(3);
   });
 
 });
@@ -103,7 +149,7 @@ describe('filterEggs', () => {
   });
 
   test('retorna pokemon por huevo', () => {
-    expect(filterEggs(pokemon, 'egg', '2 km').length).toBe(1);
+    expect(filterEggs(pokeDesordenados, 'egg', '2 km').length).toBe(1);
   });
 
 });
